@@ -1,50 +1,241 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+const name = "Saif Aboalnaga";
+const title = "AI Automation Freelancer";
+const tagline =
+  "I build AI-powered workflows that save teams 10+ hours/week using Make, n8n, Zapier, and custom APIs.";
+
+const links = {
+  email: "hello@saifaboalnaga.com",
+  whatsapp: "https://wa.me/201097429702",
+  linkedin: "https://www.linkedin.com/in/saifaboalnaga",
+  github: "https://github.com/saifaboalnagaa",
+  calendly: "", // optional: https://calendly.com/...
+};
+
+const services = [
+  {
+    title: "Lead capture & CRM automation",
+    desc: "Capture leads from forms/ads, qualify with AI, then push to Sheets/Airtable/HubSpot with instant follow-up messages.",
+  },
+  {
+    title: "AI customer support & inbox triage",
+    desc: "Auto-reply to common questions, summarize conversations, and route complex cases to humans with a clean handoff.",
+  },
+  {
+    title: "Operations automation (Notion / Sheets / Slack)",
+    desc: "Automate repetitive internal tasks: reports, onboarding, approvals, reminders, and document generation.",
+  },
+];
+
+const process = [
+  { title: "Free 15-min call", desc: "Understand your workflow + goals and what success looks like." },
+  { title: "Prototype in 48 hours", desc: "A working demo so you can see value fast." },
+  { title: "Deploy + handover", desc: "I set it up, test it, document it, and train you if needed." },
+];
+
+const demos = [
+  {
+    title: "AI Lead Qualifier",
+    bullets: [
+      "New lead from Google Form / Typeform",
+      "AI scores & tags the lead (hot/warm/cold)",
+      "Auto-follow-up email + CRM update",
+    ],
+  },
+  {
+    title: "Support Triage Assistant",
+    bullets: [
+      "New message from Gmail / WhatsApp / website chat",
+      "AI summarizes + suggests reply",
+      "Escalates urgent issues to Slack + creates ticket",
+    ],
+  },
+  {
+    title: "Weekly Report Automation",
+    bullets: [
+      "Pull data from Sheets/Notion/Analytics",
+      "AI generates a clear summary + insights",
+      "Sends report to email/Slack every Monday",
+    ],
+  },
+];
+
+const faqs = [
+  { q: "Which tools do you work with?", a: "Make.com, n8n, Zapier, Google Workspace, Notion, Airtable, Slack, WhatsApp APIs, and custom integrations via HTTP/API." },
+  { q: "Do you need access to my accounts?", a: "Only what's needed. I prefer least-privilege access and can build using temporary tokens or separate service accounts." },
+  { q: "How much does a typical automation cost?", a: "Depends on complexity. Simple automations are usually a fixed price; larger systems can be phased. After a quick call, I’ll give you a clear quote." },
+  { q: "Can you maintain it after delivery?", a: "Yes — I offer optional monthly support for monitoring, fixes, and improvements." },
+];
 ---
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} — {title}</title>
+    <meta name="description" content={tagline} />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: rgba(255,255,255,0.06);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.72);
+        --border: rgba(255,255,255,0.12);
+        --accent: #7cdbff;
+        --accent2: #b5ffcf;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: radial-gradient(1200px 800px at 20% 10%, rgba(124,219,255,0.16), transparent 60%),
+                    radial-gradient(900px 700px at 80% 30%, rgba(181,255,207,0.12), transparent 55%),
+                    var(--bg);
+        color: var(--text);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 980px; margin: 0 auto; padding: 28px 18px 60px; }
+      .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .brand { font-weight: 700; letter-spacing: 0.2px; }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 10px 14px; border: 1px solid var(--border);
+        border-radius: 999px; background: rgba(255,255,255,0.04);
+      }
+      .hero { padding: 38px 0 20px; display: grid; gap: 18px; }
+      h1 { margin: 0; font-size: clamp(30px, 5vw, 48px); line-height: 1.05; }
+      .sub { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 58ch; }
+      .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
+        background: rgba(255,255,255,0.06);
+        font-weight: 600;
+      }
+      .btn.primary {
+        background: linear-gradient(135deg, rgba(124,219,255,0.22), rgba(181,255,207,0.18));
+        border-color: rgba(124,219,255,0.35);
+      }
+      .grid { display: grid; gap: 12px; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .card {
+        padding: 16px; border: 1px solid var(--border);
+        background: var(--card); border-radius: 16px;
+      }
+      .card h3 { margin: 0 0 8px; font-size: 16px; }
+      .card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+      .section { margin-top: 22px; }
+      .section h2 { margin: 0 0 10px; font-size: 18px; }
+      ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+      li { margin: 6px 0; }
+      .two { grid-template-columns: 1.2fr 0.8fr; }
+      .faq { margin-top: 10px; }
+      details {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+      details + details { margin-top: 10px; }
+      summary { cursor: pointer; font-weight: 600; }
+      details p { margin: 10px 0 0; color: var(--muted); line-height: 1.6; }
+      footer { margin-top: 34px; color: rgba(255,255,255,0.55); font-size: 13px; }
+      .small { font-size: 13px; color: rgba(255,255,255,0.65); }
+      @media (max-width: 860px) {
+        .cards { grid-template-columns: 1fr; }
+        .two { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">{name}</div>
+        <div class="pill small"><span>⚡</span><span>{title}</span></div>
+      </div>
+
+      <div class="hero">
+        <h1>{title} for busy teams</h1>
+        <p class="sub">{tagline}</p>
+        <div class="cta">
+          <a class="btn primary" href={`mailto:${links.email}`}>Email me</a>
+          <a class="btn" href={links.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="btn" href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          {links.calendly ? (
+            <a class="btn" href={links.calendly} target="_blank" rel="noreferrer">Book a call</a>
+          ) : null}
+        </div>
+        <div class="small">Fast turnaround • Secure access • Clear documentation</div>
+      </div>
+
+      <div class="section">
+        <h2>What I build</h2>
+        <div class="grid cards">
+          {services.map((s) => (
+            <div class="card">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>How we work</h2>
+        <div class="grid cards">
+          {process.map((p) => (
+            <div class="card">
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Demo automations</h2>
+        <div class="grid two">
+          <div class="grid">
+            {demos.map((d) => (
+              <div class="card">
+                <h3>{d.title}</h3>
+                <ul>
+                  {d.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="card">
+            <h3>Get a quote</h3>
+            <p>Send me your workflow (tools you use + what you want automated). I’ll reply with:</p>
+            <ul>
+              <li>A clear plan</li>
+              <li>Timeline estimate</li>
+              <li>Fixed-price quote (when possible)</li>
+            </ul>
+            <div class="cta" style="margin-top: 12px;">
+              <a class="btn primary" href={`mailto:${links.email}`}>Send email</a>
+              <a class="btn" href={links.whatsapp} target="_blank" rel="noreferrer">Message on WhatsApp</a>
+            </div>
+            <p class="small" style="margin-top: 10px;">Tip: Include 1–2 screenshots or a short Loom video.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+          {faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <footer>© {new Date().getFullYear()} {name}. Built with Astro on Cloudflare.</footer>
+    </div>
+  </body>
 </html>
